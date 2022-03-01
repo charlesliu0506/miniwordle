@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id = "main">
+            <input class = "box" id = "i1" type = "text" maxlength= "1" onkeyup = "document.getElementById('i2').focus()">
+            <input class = "box" id = "i2" type = "text" maxlength= "1" onkeyup = "document.getElementById('i3').focus()">
+            <input class = "box" id = "i3" type = "text" maxlength= "1">
+            <br><br>
+            <input class = "box" id = "i4" type = "text" maxlength= "1" onkeyup = "document.getElementById('i5').focus()">
+            <input class = "box" id = "i5" type = "text" maxlength= "1" onkeyup = "document.getElementById('i6').focus()">
+            <input class = "box" id = "i6" type = "text" maxlength= "1">
+            <br><br>
+            <input class = "box" id = "i7" type = "text" maxlength= "1" onkeyup = "document.getElementById('i8').focus()">
+            <input class = "box" id = "i8" type = "text" maxlength= "1" onkeyup = "document.getElementById('i9').focus()">
+            <input class = "box" id = "i9" type = "text" maxlength= "1">
+            <br><br>
+            <input class = "box" id = "i10" type = "text" maxlength= "1" onkeyup = "document.getElementById('i11').focus()">
+            <input class = "box" id = "i11" type = "text" maxlength= "1" onkeyup = "document.getElementById('i12').focus()">
+            <input class = "box" id = "i12" type = "text" maxlength= "1">
+        </div>
+        <script>
+            var i1 = document.getElementById("i1");
+            i3.addEventListener("keypress", function(event){
+                if (event.keyCode === 13){
+                    let l1 = document.getElementById("i1").value;
+                    let l2 = document.getElementById("i2").value;
+                    let l3 = document.getElementById("i3").value;
+                    let word = (l1 + l2 + l3).toLowerCase();
+                    const words = ['aba', 'abs', 'ace', 'act', 'add', 'ado', 'aft', 'age', 'ago', 'aha', 'aid', 'aim', 'air', 'ala', 'ale', 'all', 'alt', 'amp', 'ana', 'and', 'ant', 'any', 'ape', 'app', 'apt', 'arc', 'are', 'ark', 'arm', 'art', 'ash', 'ask', 'asp', 'ass', 'ate', 'ave', 'awe', 'axe', 'aye', 'baa', 'bad', 'bag', 'ban', 'bar', 'bat', 'bay', 'bed', 'bee', 'beg', 'bel', 'ben', 'bet', 'bid', 'big', 'bin', 'bio', 'bis', 'bit', 'biz', 'bob', 'bog', 'boo', 'bow', 'box', 'boy', 'bra', 'bud', 'bug', 'bum', 'bun', 'bus', 'but', 'buy', 'bye', 'cab', 'cad', 'cam', 'can', 'cap', 'car', 'cat', 'chi', 'cob', 'cod', 'col', 'con', 'coo', 'cop', 'cor', 'cos', 'cot', 'cow', 'cox', 'coy', 'cry', 'cub', 'cue', 'cum', 'cup', 'cut', 'dab', 'dad', 'dal', 'dam', 'dan', 'day', 'dee', 'def', 'del', 'den', 'dew', 'did', 'die', 'dig', 'dim', 'din', 'dip', 'dis', 'doc', 'doe', 'dog', 'don', 'dot', 'dry', 'dub', 'due', 'dug', 'dun', 'duo', 'dye', 'ear', 'eat', 'ebb', 'ecu', 'eft', 'egg', 'ego', 'elf', 'elm', 'emu', 'end', 'era', 'eta', 'eve', 'eye', 'fab', 'fad', 'fan', 'far', 'fat', 'fax', 'fay', 'fed', 'fee', 'fen', 'few', 'fig', 'fin', 'fir', 'fit', 'fix', 'flu', 'fly', 'foe', 'fog', 'for', 'fox', 'fry', 'fun', 'fur', 'gag', 'gal', 'gap', 'gas', 'gay', 'gee', 'gel', 'gem', 'get', 'gig', 'gin', 'god', 'got', 'gum', 'gun', 'gut', 'guy', 'gym', 'had', 'ham', 'has', 'hat', 'hay', 'hem', 'hen', 'her', 'hey', 'hid', 'him', 'hip', 'his', 'hit', 'hog', 'hon', 'hop', 'hot', 'how', 'hub', 'hue', 'hug', 'huh', 'hum', 'hut', 'ice', 'icy', 'igg', 'ill', 'imp', 'ink', 'inn', 'ion', 'its', 'ivy', 'jam', 'jar', 'jaw', 'jay', 'jet', 'jew', 'job', 'joe', 'jog', 'joy', 'jug', 'jun', 'kay', 'ken', 'key', 'kid', 'kin', 'kit', 'lab', 'lac', 'lad', 'lag', 'lam', 'lap', 'law', 'lax', 'lay', 'lea', 'led', 'lee', 'leg', 'les', 'let', 'lib', 'lid', 'lie', 'lip', 'lit', 'log', 'lot', 'low', 'mac', 'mad', 'mag', 'man', 'map', 'mar', 'mas', 'mat', 'max', 'may', 'med', 'meg', 'men', 'met', 'mid', 'mil', 'mix', 'mob', 'mod', 'mol', 'mom', 'mon', 'mop', 'mot', 'mud', 'mug', 'mum', 'nab', 'nah', 'nan', 'nap', 'nay', 'neb', 'neg', 'net', 'new', 'nil', 'nip', 'nod', 'nor', 'nos', 'not', 'now', 'nun', 'nut', 'oak', 'odd', 'off', 'oft', 'oil', 'old', 'ole', 'one', 'ooh', 'opt', 'orb', 'ore', 'our', 'out', 'owe', 'owl', 'own', 'pac', 'pad', 'pal', 'pam', 'pan', 'pap', 'par', 'pas', 'pat', 'paw', 'pay', 'pea', 'peg', 'pen', 'pep', 'per', 'pet', 'pew', 'phi', 'pic', 'pie', 'pig', 'pin', 'pip', 'pit', 'ply', 'pod', 'pol', 'pop', 'pot', 'pro', 'psi', 'pub', 'pup', 'put', 'rad', 'rag', 'raj', 'ram', 'ran', 'rap', 'rat', 'raw', 'ray', 'red', 'ref', 'reg', 'rem', 'rep', 'rev', 'rib', 'rid', 'rig', 'rim', 'rip', 'rob', 'rod', 'roe', 'rot', 'row', 'rub', 'rue', 'rug', 'rum', 'run', 'rye', 'sab', 'sac', 'sad', 'sae', 'sag', 'sal', 'sap', 'sat', 'saw', 'say', 'sea', 'sec', 'see', 'sen', 'set', 'sew', 'sex', 'she', 'shy', 'sic', 'sim', 'sin', 'sip', 'sir', 'sis', 'sit', 'six', 'ski', 'sky', 'sly', 'sod', 'sol', 'son', 'sow', 'soy', 'spa', 'spy', 'sub', 'sue', 'sum', 'sun', 'sup', 'tab', 'tad', 'tag', 'tam', 'tan', 'tap', 'tar', 'tat', 'tax', 'tea', 'ted', 'tee', 'ten', 'the', 'thy', 'tie', 'tin', 'tip', 'tod', 'toe', 'tom', 'ton', 'too', 'top', 'tor', 'tot', 'tow', 'toy', 'try', 'tub', 'tug', 'two', 'use', 'van', 'vat', 'vet', 'via', 'vie', 'vow', 'wan', 'war', 'was', 'wax', 'way', 'web', 'wed', 'wee', 'wet', 'who', 'why', 'wig', 'win', 'wis', 'wit', 'won', 'woo', 'wow', 'wry', 'wye', 'yen', 'yep', 'yes', 'yet', 'you', 'zip', 'zoo']
+                    var trueword = "met";
+                    if (word.length === 3 && words.includes(word)){
+                        if (trueword.includes(l1)){
+                            if (trueword[0] === l1){
+                                document.getElementById("i1").className = "g"
+                            }
+                            else{
+                                document.getElementById("i1").className = "y"
+                            }
+                        }
+                        else{
+                            document.getElementById("i1").className = "b"
+                        }
+                        if (trueword.includes(l2)){
+                            if (trueword[1] === l2){
+                                document.getElementById("i2").className = "g"
+                            }
+                            else{
+                                document.getElementById("i2").className = "y"
+                            }
+                        }
+                        else{
+                            document.getElementById("i2").className = "b"
+                        }
+                        if (trueword.includes(l3)){
+                            if (trueword[2] === l3){
+                                document.getElementById("i3").className = "g"
+                            }
+                            else{
+                                document.getElementById("i3").className = "y"
+                            }
+                        }
+                        else{
+                            document.getElementById("i3").className = "b"
+                        }
+                        document.getElementById("i1").disabled = true;
+                        document.getElementById("i2").disabled = true;
+                        document.getElementById("i3").disabled = true;
+                    }
+                }
+            });
+            i6.addEventListener("keypress", function(event){
+                if (event.keyCode === 13){
+                    let l1 = document.getElementById("i4").value;
+                    let l2 = document.getElementById("i5").value;
+                    let l3 = document.getElementById("i6").value;
+                    let word = (l1 + l2 + l3).toLowerCase();
+                    const words = ['aba', 'abs', 'ace', 'act', 'add', 'ado', 'aft', 'age', 'ago', 'aha', 'aid', 'aim', 'air', 'ala', 'ale', 'all', 'alt', 'amp', 'ana', 'and', 'ant', 'any', 'ape', 'app', 'apt', 'arc', 'are', 'ark', 'arm', 'art', 'ash', 'ask', 'asp', 'ass', 'ate', 'ave', 'awe', 'axe', 'aye', 'baa', 'bad', 'bag', 'ban', 'bar', 'bat', 'bay', 'bed', 'bee', 'beg', 'bel', 'ben', 'bet', 'bid', 'big', 'bin', 'bio', 'bis', 'bit', 'biz', 'bob', 'bog', 'boo', 'bow', 'box', 'boy', 'bra', 'bud', 'bug', 'bum', 'bun', 'bus', 'but', 'buy', 'bye', 'cab', 'cad', 'cam', 'can', 'cap', 'car', 'cat', 'chi', 'cob', 'cod', 'col', 'con', 'coo', 'cop', 'cor', 'cos', 'cot', 'cow', 'cox', 'coy', 'cry', 'cub', 'cue', 'cum', 'cup', 'cut', 'dab', 'dad', 'dal', 'dam', 'dan', 'day', 'dee', 'def', 'del', 'den', 'dew', 'did', 'die', 'dig', 'dim', 'din', 'dip', 'dis', 'doc', 'doe', 'dog', 'don', 'dot', 'dry', 'dub', 'due', 'dug', 'dun', 'duo', 'dye', 'ear', 'eat', 'ebb', 'ecu', 'eft', 'egg', 'ego', 'elf', 'elm', 'emu', 'end', 'era', 'eta', 'eve', 'eye', 'fab', 'fad', 'fan', 'far', 'fat', 'fax', 'fay', 'fed', 'fee', 'fen', 'few', 'fig', 'fin', 'fir', 'fit', 'fix', 'flu', 'fly', 'foe', 'fog', 'for', 'fox', 'fry', 'fun', 'fur', 'gag', 'gal', 'gap', 'gas', 'gay', 'gee', 'gel', 'gem', 'get', 'gig', 'gin', 'god', 'got', 'gum', 'gun', 'gut', 'guy', 'gym', 'had', 'ham', 'has', 'hat', 'hay', 'hem', 'hen', 'her', 'hey', 'hid', 'him', 'hip', 'his', 'hit', 'hog', 'hon', 'hop', 'hot', 'how', 'hub', 'hue', 'hug', 'huh', 'hum', 'hut', 'ice', 'icy', 'igg', 'ill', 'imp', 'ink', 'inn', 'ion', 'its', 'ivy', 'jam', 'jar', 'jaw', 'jay', 'jet', 'jew', 'job', 'joe', 'jog', 'joy', 'jug', 'jun', 'kay', 'ken', 'key', 'kid', 'kin', 'kit', 'lab', 'lac', 'lad', 'lag', 'lam', 'lap', 'law', 'lax', 'lay', 'lea', 'led', 'lee', 'leg', 'les', 'let', 'lib', 'lid', 'lie', 'lip', 'lit', 'log', 'lot', 'low', 'mac', 'mad', 'mag', 'man', 'map', 'mar', 'mas', 'mat', 'max', 'may', 'med', 'meg', 'men', 'met', 'mid', 'mil', 'mix', 'mob', 'mod', 'mol', 'mom', 'mon', 'mop', 'mot', 'mud', 'mug', 'mum', 'nab', 'nah', 'nan', 'nap', 'nay', 'neb', 'neg', 'net', 'new', 'nil', 'nip', 'nod', 'nor', 'nos', 'not', 'now', 'nun', 'nut', 'oak', 'odd', 'off', 'oft', 'oil', 'old', 'ole', 'one', 'ooh', 'opt', 'orb', 'ore', 'our', 'out', 'owe', 'owl', 'own', 'pac', 'pad', 'pal', 'pam', 'pan', 'pap', 'par', 'pas', 'pat', 'paw', 'pay', 'pea', 'peg', 'pen', 'pep', 'per', 'pet', 'pew', 'phi', 'pic', 'pie', 'pig', 'pin', 'pip', 'pit', 'ply', 'pod', 'pol', 'pop', 'pot', 'pro', 'psi', 'pub', 'pup', 'put', 'rad', 'rag', 'raj', 'ram', 'ran', 'rap', 'rat', 'raw', 'ray', 'red', 'ref', 'reg', 'rem', 'rep', 'rev', 'rib', 'rid', 'rig', 'rim', 'rip', 'rob', 'rod', 'roe', 'rot', 'row', 'rub', 'rue', 'rug', 'rum', 'run', 'rye', 'sab', 'sac', 'sad', 'sae', 'sag', 'sal', 'sap', 'sat', 'saw', 'say', 'sea', 'sec', 'see', 'sen', 'set', 'sew', 'sex', 'she', 'shy', 'sic', 'sim', 'sin', 'sip', 'sir', 'sis', 'sit', 'six', 'ski', 'sky', 'sly', 'sod', 'sol', 'son', 'sow', 'soy', 'spa', 'spy', 'sub', 'sue', 'sum', 'sun', 'sup', 'tab', 'tad', 'tag', 'tam', 'tan', 'tap', 'tar', 'tat', 'tax', 'tea', 'ted', 'tee', 'ten', 'the', 'thy', 'tie', 'tin', 'tip', 'tod', 'toe', 'tom', 'ton', 'too', 'top', 'tor', 'tot', 'tow', 'toy', 'try', 'tub', 'tug', 'two', 'use', 'van', 'vat', 'vet', 'via', 'vie', 'vow', 'wan', 'war', 'was', 'wax', 'way', 'web', 'wed', 'wee', 'wet', 'who', 'why', 'wig', 'win', 'wis', 'wit', 'won', 'woo', 'wow', 'wry', 'wye', 'yen', 'yep', 'yes', 'yet', 'you', 'zip', 'zoo']
+                    var trueword = "met";
+                    if (word.length === 3 && words.includes(word)){
+                        if (trueword.includes(l1)){
+                            if (trueword[0] === l1){
+                                document.getElementById("i4").className = "g"
+                            }
+                            else{
+                                document.getElementById("i4").className = "y"
+                            }
+                        }
+                        else{
+                            document.getElementById("i4").className = "b"
+                        }
+                        if (trueword.includes(l2)){
+                            if (trueword[1] === l2){
+                                document.getElementById("i5").className = "g"
+                            }
+                            else{
+                                document.getElementById("i5").className = "y"
+                            }
+                        }
+                        else{
+                            document.getElementById("i5").className = "b"
+                        }
+                        if (trueword.includes(l3)){
+                            if (trueword[2] === l3){
+                                document.getElementById("i6").className = "g"
+                            }
+                            else{
+                                document.getElementById("i6").className = "y"
+                            }
+                        }
+                        else{
+                            document.getElementById("i6").className = "b"
+                        }
+                        document.getElementById("i4").disabled = true;
+                        document.getElementById("i5").disabled = true;
+                        document.getElementById("i6").disabled = true;
+                    }
+                }
+            });
+            i9.addEventListener("keypress", function(event){
+                if (event.keyCode === 13){
+                    let l1 = document.getElementById("i7").value;
+                    let l2 = document.getElementById("i8").value;
+                    let l3 = document.getElementById("i9").value;
+                    let word = (l1 + l2 + l3).toLowerCase();
+                    const words = ['aba', 'abs', 'ace', 'act', 'add', 'ado', 'aft', 'age', 'ago', 'aha', 'aid', 'aim', 'air', 'ala', 'ale', 'all', 'alt', 'amp', 'ana', 'and', 'ant', 'any', 'ape', 'app', 'apt', 'arc', 'are', 'ark', 'arm', 'art', 'ash', 'ask', 'asp', 'ass', 'ate', 'ave', 'awe', 'axe', 'aye', 'baa', 'bad', 'bag', 'ban', 'bar', 'bat', 'bay', 'bed', 'bee', 'beg', 'bel', 'ben', 'bet', 'bid', 'big', 'bin', 'bio', 'bis', 'bit', 'biz', 'bob', 'bog', 'boo', 'bow', 'box', 'boy', 'bra', 'bud', 'bug', 'bum', 'bun', 'bus', 'but', 'buy', 'bye', 'cab', 'cad', 'cam', 'can', 'cap', 'car', 'cat', 'chi', 'cob', 'cod', 'col', 'con', 'coo', 'cop', 'cor', 'cos', 'cot', 'cow', 'cox', 'coy', 'cry', 'cub', 'cue', 'cum', 'cup', 'cut', 'dab', 'dad', 'dal', 'dam', 'dan', 'day', 'dee', 'def', 'del', 'den', 'dew', 'did', 'die', 'dig', 'dim', 'din', 'dip', 'dis', 'doc', 'doe', 'dog', 'don', 'dot', 'dry', 'dub', 'due', 'dug', 'dun', 'duo', 'dye', 'ear', 'eat', 'ebb', 'ecu', 'eft', 'egg', 'ego', 'elf', 'elm', 'emu', 'end', 'era', 'eta', 'eve', 'eye', 'fab', 'fad', 'fan', 'far', 'fat', 'fax', 'fay', 'fed', 'fee', 'fen', 'few', 'fig', 'fin', 'fir', 'fit', 'fix', 'flu', 'fly', 'foe', 'fog', 'for', 'fox', 'fry', 'fun', 'fur', 'gag', 'gal', 'gap', 'gas', 'gay', 'gee', 'gel', 'gem', 'get', 'gig', 'gin', 'god', 'got', 'gum', 'gun', 'gut', 'guy', 'gym', 'had', 'ham', 'has', 'hat', 'hay', 'hem', 'hen', 'her', 'hey', 'hid', 'him', 'hip', 'his', 'hit', 'hog', 'hon', 'hop', 'hot', 'how', 'hub', 'hue', 'hug', 'huh', 'hum', 'hut', 'ice', 'icy', 'igg', 'ill', 'imp', 'ink', 'inn', 'ion', 'its', 'ivy', 'jam', 'jar', 'jaw', 'jay', 'jet', 'jew', 'job', 'joe', 'jog', 'joy', 'jug', 'jun', 'kay', 'ken', 'key', 'kid', 'kin', 'kit', 'lab', 'lac', 'lad', 'lag', 'lam', 'lap', 'law', 'lax', 'lay', 'lea', 'led', 'lee', 'leg', 'les', 'let', 'lib', 'lid', 'lie', 'lip', 'lit', 'log', 'lot', 'low', 'mac', 'mad', 'mag', 'man', 'map', 'mar', 'mas', 'mat', 'max', 'may', 'med', 'meg', 'men', 'met', 'mid', 'mil', 'mix', 'mob', 'mod', 'mol', 'mom', 'mon', 'mop', 'mot', 'mud', 'mug', 'mum', 'nab', 'nah', 'nan', 'nap', 'nay', 'neb', 'neg', 'net', 'new', 'nil', 'nip', 'nod', 'nor', 'nos', 'not', 'now', 'nun', 'nut', 'oak', 'odd', 'off', 'oft', 'oil', 'old', 'ole', 'one', 'ooh', 'opt', 'orb', 'ore', 'our', 'out', 'owe', 'owl', 'own', 'pac', 'pad', 'pal', 'pam', 'pan', 'pap', 'par', 'pas', 'pat', 'paw', 'pay', 'pea', 'peg', 'pen', 'pep', 'per', 'pet', 'pew', 'phi', 'pic', 'pie', 'pig', 'pin', 'pip', 'pit', 'ply', 'pod', 'pol', 'pop', 'pot', 'pro', 'psi', 'pub', 'pup', 'put', 'rad', 'rag', 'raj', 'ram', 'ran', 'rap', 'rat', 'raw', 'ray', 'red', 'ref', 'reg', 'rem', 'rep', 'rev', 'rib', 'rid', 'rig', 'rim', 'rip', 'rob', 'rod', 'roe', 'rot', 'row', 'rub', 'rue', 'rug', 'rum', 'run', 'rye', 'sab', 'sac', 'sad', 'sae', 'sag', 'sal', 'sap', 'sat', 'saw', 'say', 'sea', 'sec', 'see', 'sen', 'set', 'sew', 'sex', 'she', 'shy', 'sic', 'sim', 'sin', 'sip', 'sir', 'sis', 'sit', 'six', 'ski', 'sky', 'sly', 'sod', 'sol', 'son', 'sow', 'soy', 'spa', 'spy', 'sub', 'sue', 'sum', 'sun', 'sup', 'tab', 'tad', 'tag', 'tam', 'tan', 'tap', 'tar', 'tat', 'tax', 'tea', 'ted', 'tee', 'ten', 'the', 'thy', 'tie', 'tin', 'tip', 'tod', 'toe', 'tom', 'ton', 'too', 'top', 'tor', 'tot', 'tow', 'toy', 'try', 'tub', 'tug', 'two', 'use', 'van', 'vat', 'vet', 'via', 'vie', 'vow', 'wan', 'war', 'was', 'wax', 'way', 'web', 'wed', 'wee', 'wet', 'who', 'why', 'wig', 'win', 'wis', 'wit', 'won', 'woo', 'wow', 'wry', 'wye', 'yen', 'yep', 'yes', 'yet', 'you', 'zip', 'zoo']
+                    var trueword = "met";
+                    if (word.length === 3 && words.includes(word)){
+                        if (trueword.includes(l1)){
+                            if (trueword[0] === l1){
+                                document.getElementById("i7").className = "g"
+                            }
+                            else{
+                                document.getElementById("i7").className = "y"
+                            }
+                        }
+                        else{
+                            document.getElementById("i7").className = "b"
+                        }
+                        if (trueword.includes(l2)){
+                            if (trueword[1] === l2){
+                                document.getElementById("i8").className = "g"
+                            }
+                            else{
+                                document.getElementById("i8").className = "y"
+                            }
+                        }
+                        else{
+                            document.getElementById("i8").className = "b"
+                        }
+                        if (trueword.includes(l3)){
+                            if (trueword[2] === l3){
+                                document.getElementById("i9").className = "g"
+                            }
+                            else{
+                                document.getElementById("i9").className = "y"
+                            }
+                        }
+                        else{
+                            document.getElementById("i9").className = "b"
+                        }
+                        document.getElementById("i7").disabled = true;
+                        document.getElementById("i8").disabled = true;
+                        document.getElementById("i9").disabled = true;
+                    }
+                }
+            });
+            i12.addEventListener("keypress", function(event){
+                if (event.keyCode === 13){
+                    let l1 = document.getElementById("i10").value;
+                    let l2 = document.getElementById("i11").value;
+                    let l3 = document.getElementById("i12").value;
+                    let word = (l1 + l2 + l3).toLowerCase();
+                    const words = ['aba', 'abs', 'ace', 'act', 'add', 'ado', 'aft', 'age', 'ago', 'aha', 'aid', 'aim', 'air', 'ala', 'ale', 'all', 'alt', 'amp', 'ana', 'and', 'ant', 'any', 'ape', 'app', 'apt', 'arc', 'are', 'ark', 'arm', 'art', 'ash', 'ask', 'asp', 'ass', 'ate', 'ave', 'awe', 'axe', 'aye', 'baa', 'bad', 'bag', 'ban', 'bar', 'bat', 'bay', 'bed', 'bee', 'beg', 'bel', 'ben', 'bet', 'bid', 'big', 'bin', 'bio', 'bis', 'bit', 'biz', 'bob', 'bog', 'boo', 'bow', 'box', 'boy', 'bra', 'bud', 'bug', 'bum', 'bun', 'bus', 'but', 'buy', 'bye', 'cab', 'cad', 'cam', 'can', 'cap', 'car', 'cat', 'chi', 'cob', 'cod', 'col', 'con', 'coo', 'cop', 'cor', 'cos', 'cot', 'cow', 'cox', 'coy', 'cry', 'cub', 'cue', 'cum', 'cup', 'cut', 'dab', 'dad', 'dal', 'dam', 'dan', 'day', 'dee', 'def', 'del', 'den', 'dew', 'did', 'die', 'dig', 'dim', 'din', 'dip', 'dis', 'doc', 'doe', 'dog', 'don', 'dot', 'dry', 'dub', 'due', 'dug', 'dun', 'duo', 'dye', 'ear', 'eat', 'ebb', 'ecu', 'eft', 'egg', 'ego', 'elf', 'elm', 'emu', 'end', 'era', 'eta', 'eve', 'eye', 'fab', 'fad', 'fan', 'far', 'fat', 'fax', 'fay', 'fed', 'fee', 'fen', 'few', 'fig', 'fin', 'fir', 'fit', 'fix', 'flu', 'fly', 'foe', 'fog', 'for', 'fox', 'fry', 'fun', 'fur', 'gag', 'gal', 'gap', 'gas', 'gay', 'gee', 'gel', 'gem', 'get', 'gig', 'gin', 'god', 'got', 'gum', 'gun', 'gut', 'guy', 'gym', 'had', 'ham', 'has', 'hat', 'hay', 'hem', 'hen', 'her', 'hey', 'hid', 'him', 'hip', 'his', 'hit', 'hog', 'hon', 'hop', 'hot', 'how', 'hub', 'hue', 'hug', 'huh', 'hum', 'hut', 'ice', 'icy', 'igg', 'ill', 'imp', 'ink', 'inn', 'ion', 'its', 'ivy', 'jam', 'jar', 'jaw', 'jay', 'jet', 'jew', 'job', 'joe', 'jog', 'joy', 'jug', 'jun', 'kay', 'ken', 'key', 'kid', 'kin', 'kit', 'lab', 'lac', 'lad', 'lag', 'lam', 'lap', 'law', 'lax', 'lay', 'lea', 'led', 'lee', 'leg', 'les', 'let', 'lib', 'lid', 'lie', 'lip', 'lit', 'log', 'lot', 'low', 'mac', 'mad', 'mag', 'man', 'map', 'mar', 'mas', 'mat', 'max', 'may', 'med', 'meg', 'men', 'met', 'mid', 'mil', 'mix', 'mob', 'mod', 'mol', 'mom', 'mon', 'mop', 'mot', 'mud', 'mug', 'mum', 'nab', 'nah', 'nan', 'nap', 'nay', 'neb', 'neg', 'net', 'new', 'nil', 'nip', 'nod', 'nor', 'nos', 'not', 'now', 'nun', 'nut', 'oak', 'odd', 'off', 'oft', 'oil', 'old', 'ole', 'one', 'ooh', 'opt', 'orb', 'ore', 'our', 'out', 'owe', 'owl', 'own', 'pac', 'pad', 'pal', 'pam', 'pan', 'pap', 'par', 'pas', 'pat', 'paw', 'pay', 'pea', 'peg', 'pen', 'pep', 'per', 'pet', 'pew', 'phi', 'pic', 'pie', 'pig', 'pin', 'pip', 'pit', 'ply', 'pod', 'pol', 'pop', 'pot', 'pro', 'psi', 'pub', 'pup', 'put', 'rad', 'rag', 'raj', 'ram', 'ran', 'rap', 'rat', 'raw', 'ray', 'red', 'ref', 'reg', 'rem', 'rep', 'rev', 'rib', 'rid', 'rig', 'rim', 'rip', 'rob', 'rod', 'roe', 'rot', 'row', 'rub', 'rue', 'rug', 'rum', 'run', 'rye', 'sab', 'sac', 'sad', 'sae', 'sag', 'sal', 'sap', 'sat', 'saw', 'say', 'sea', 'sec', 'see', 'sen', 'set', 'sew', 'sex', 'she', 'shy', 'sic', 'sim', 'sin', 'sip', 'sir', 'sis', 'sit', 'six', 'ski', 'sky', 'sly', 'sod', 'sol', 'son', 'sow', 'soy', 'spa', 'spy', 'sub', 'sue', 'sum', 'sun', 'sup', 'tab', 'tad', 'tag', 'tam', 'tan', 'tap', 'tar', 'tat', 'tax', 'tea', 'ted', 'tee', 'ten', 'the', 'thy', 'tie', 'tin', 'tip', 'tod', 'toe', 'tom', 'ton', 'too', 'top', 'tor', 'tot', 'tow', 'toy', 'try', 'tub', 'tug', 'two', 'use', 'van', 'vat', 'vet', 'via', 'vie', 'vow', 'wan', 'war', 'was', 'wax', 'way', 'web', 'wed', 'wee', 'wet', 'who', 'why', 'wig', 'win', 'wis', 'wit', 'won', 'woo', 'wow', 'wry', 'wye', 'yen', 'yep', 'yes', 'yet', 'you', 'zip', 'zoo']
+                    var trueword = "met";
+                    if (word.length === 3 && words.includes(word)){
+                        if (trueword.includes(l1)){
+                            if (trueword[0] === l1){
+                                document.getElementById("i10").className = "g"
+                            }
+                            else{
+                                document.getElementById("i10").className = "y"
+                            }
+                        }
+                        else{
+                            document.getElementById("i10").className = "b"
+                        }
+                        if (trueword.includes(l2)){
+                            if (trueword[1] === l2){
+                                document.getElementById("i11").className = "g"
+                            }
+                            else{
+                                document.getElementById("i11").className = "y"
+                            }
+                        }
+                        else{
+                            document.getElementById("i11").className = "b"
+                        }
+                        if (trueword.includes(l3)){
+                            if (trueword[2] === l3){
+                                document.getElementById("i12").className = "g"
+                            }
+                            else{
+                                document.getElementById("i12").className = "y"
+                            }
+                        }
+                        else{
+                            document.getElementById("i12").className = "b"
+                        }
+                        document.getElementById("i10").disabled = true;
+                        document.getElementById("i11").disabled = true;
+                        document.getElementById("i12").disabled = true;
+                    }
+                }
+            });
+        </script>
+        <style>
+            .box {
+                font-size: 48px;
+                height: 50px;
+                width: 50px;
+                text-transform: uppercase;
+                font-family: 'Courier New', Courier, monospace;
+                text-align: center;
+            }
+            .g {
+                font-size: 48px;
+                height: 50px;
+                width: 50px;
+                text-transform: uppercase;
+                font-family: 'Courier New', Courier, monospace;
+                text-align: center;
+                background-color: green;
+            }
+            .y {
+                font-size: 48px;
+                height: 50px;
+                width: 50px;
+                text-transform: uppercase;
+                font-family: 'Courier New', Courier, monospace;
+                text-align: center;
+                background-color: yellow;
+            }
+            .b {
+                font-size: 48px;
+                height: 50px;
+                width: 50px;
+                text-transform: uppercase;
+                font-family: 'Courier New', Courier, monospace;
+                text-align: center;
+                background-color: lightgrey;
+            }
+        </style>
+    </body>
+</html>
