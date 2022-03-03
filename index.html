@@ -24,6 +24,15 @@
             <input class = "box" id = "i12" type = "text" maxlength= "1">
         </div>
         <script>
+            function count(char, arr){
+                var count = 0;
+                for (i = 0; i < 3; i++){
+                    if (char === arr[i]){
+                        count++;
+                    }
+                }
+                return count;
+            }
             const words = ['odd', 'amp', 'key', 'neb', 'see', 'hid', 'did', 'gem', 'mum', 'sol', 'mag', 'lac', 'hub', 'cut', 'sad', 'sis', 'cor', 'hop', 'bio', 'lip', 'lag', 'led', 'set', 'gag', 'din', 'fat', 'met', 'job', 'tad', 'boo', 'jug', 'pie', 'few', 'vie', 'rub', 'nor', 'pol', 'wee', 'rad', 'gum', 'hat', 'pen', 'sit', 'nay', 'far', 'spa', 'dew', 'run', 'bun', 'one', 'ton', 'rod', 'bel', 'tin', 'mud', 'ana', 'spy', 'mat', 'oft', 'sum', 'ago', 'tow', 'cot', 'hem', 'dim', 'hip', 'pop', 'jaw', 'dry', 'mar', 'gay', 'gut', 'saw', 'cue', 'nip', 'man', 'pam', 'air', 'pot', 'ink', 'rue', 'bar', 'off', 'yen', 'tug', 'jew', 'wag', 'but', 'boy', 'inn', 'sag', 'rag', 'fab', 'and', 'eft', 'cab', 'coo', 'toy', 'due', 'bis', 'sub', 'car', 'mom', 'lay', 'dee', 'pay', 'hut', 'ale', 'hag', 'sim', 'orb', 'cos', 'ark', 'log', 'dab', 'max', 'has', 'rip', 'sew', 'sex', 'law', 'say', 'pas', 'sea', 'shy', 'sir', 'ave', 'tat', 'gal', 'oil', 'old', 'dog', 'ten', 'egg', 'its', 'awe', 'lie', 'imp', 'coy', 'rye', 'zoo', 'tap', 'lit', 'bud', 'rap', 'tea', 'cob', 'pac', 'end', 'mop', 'ben', 'ill', 'ivy', 'fry', 'van', 'dip', 'par', 'cox', 'bed', 'soy', 'aid', 'ken', 'lea', 'tot', 'ooh', 'mot', 'lid', 'for', 'rig', 'emu', 'rum', 'dig', 'lab', 'now', 'tab', 'app', 'wit', 'tee', 'ear', 'fad', 'duo', 'gap', 'son', 'wed', 'his', 'rep', 'rem', 'hey', 'opt', 'lam', 'nod', 'rat', 'new', 'nab', 'cow', 'she', 'dam', 'baa', 'nun', 'eat', 'pic', 'dad', 'lee', 'fee', 'gas', 'fan', 'kay', 'gin', 'ace', 'pit', 'net', 'aft', 'map', 'fin', 'den', 'bug', 'mac', 'paw', 'rib', 'fur', 'mon', 'eye', 'aha', 'out', 'pad', 'tub', 'bat', 'mad', 'wan', 'kin', 'get', 'fit', 'beg', 'not', 'woo', 'fly', 'pin', 'bag', 'pub', 'all', 'fog', 'foe', 'abs', 'bay', 'fed', 'lad', 'win', 'cry', 'eta', 'dal', 'the', 'our', 'sly', 'fir', 'too', 'dug', 'tam', 'you', 'fun', 'tip', 'wax', 'joe', 'kit', 'yet', 'two', 'mod', 'vow', 'red', 'rot', 'mix', 'sky', 'ply', 'cod', 'owe', 'jog', 'hot', 'ref', 'fen', 'ted', 'cap', 'cub', 'sod', 'ebb', 'jay', 'via', 'del', 'aba', 'own', 'tom', 'elm', 'bob', 'was', 'tag', 'lib', 'con', 'dub', 'huh', 'low', 'oak', 'gel', 'ate', 'bad', 'vat', 'pro', 'doe', 'sue', 'sun', 'alt', 'pig', 'sal', 'pep', 'pap', 'aye', 'nap', 'mid', 'toe', 'per', 'cat', 'act', 'joy', 'sat', 'pup', 'bog', 'may', 'hog', 'hum', 'bum', 'gym', 'any', 'fay', 'wet', 'biz', 'lap', 'pip', 'wig', 'ham', 'cum', 'fig', 'buy', 'hen', 'eve', 'raj', 'jet', 'ant', 'sec', 'let', 'rug', 'had', 'ram', 'don', 'ice', 'tor', 'ore', 'igg', 'hue', 'elf', 'ecu', 'god', 'pan', 'nil', 'hit', 'kid', 'sen', 'way', 'ape', 'ray', 'war', 'hon', 'axe', 'ban', 'doc', 'arm', 'apt', 'meg', 'gig', 'sip', 'sac', 'ski', 'lot', 'sae', 'can', 'top', 'def', 'try', 'bin', 'art', 'ask', 'gun', 'mob', 'cad', 'bid', 'ran', 'mug', 'guy', 'cam', 'nah', 'mas', 'jar', 'die', 'dis', 'yep', 'rev', 'ion', 'box', 'chi', 'pat', 'row', 'fox', 'tax', 'wye', 'tan', 'her', 'flu', 'dun', 'wis', 'rim', 'sin', 'era', 'how', 'hay', 'cop', 'rid', 'ash', 'vet', 'dan', 'les', 'men', 'gee', 'bet', 'rob', 'big', 'use', 'yes', 'dot', 'add', 'roe', 'mol', 'pal', 'aim', 'web', 'ole', 'thy', 'sap', 'fax', 'ego', 'neg', 'phi', 'raw', 'bee', 'got', 'nan', 'bye', 'leg', 'sic', 'six', 'day', 'hug', 'who', 'tie', 'psi', 'nut', 'reg', 'bit', 'mil', 'tar', 'him', 'ado', 'asp', 'are', 'ala', 'wow', 'tod', 'bra', 'icy', 'put', 'sup', 'bow', 'why', 'age', 'won', 'cup', 'sab', 'jun', 'sow', 'wry', 'pew', 'arc', 'peg', 'col', 'zip', 'bus', 'pod', 'fix', 'pet', 'owl', 'med', 'nos', 'jam', 'dye', 'lax', 'pea']
             var bignumber = Math.floor(Date.now()/3600000)
             var trueword = words[bignumber - 457291];
@@ -57,17 +66,25 @@
                     i2.focus();
                 }
                 if (event.keyCode === 13){
-                    let l1 = i1.value;
-                    let l2 = i2.value;
-                    let l3 = i3.value;
-                    let word = (l1 + l2 + l3).toLowerCase();
+                    let l1 = i1.value.toLowerCase();
+                    let l2 = i2.value.toLowerCase();
+                    let l3 = i3.value.toLowerCase();
+                    let word = (l1 + l2 + l3)
+                    let arr = [l3, l2, l1]
                     if (word.length === 3 && words.includes(word)){
                         if (trueword.includes(l1)){
                             if (trueword[0] === l1){
                                 i1.className = "g"
                             }
                             else{
-                                i1.className = "y"
+                                if (count(l1, arr) > count(l1, truearr)){
+                                    i1.className = "b"
+                                    arr.splice(2, 1);
+                                }
+                                else{
+                                    i1.className = "y"
+                                    }
+                                }
                             }
                         }
                         else{
@@ -78,7 +95,14 @@
                                 i2.className = "g"
                             }
                             else{
-                                i2.className = "y"
+                                if (count(l2, arr) > count(l2, truearr)){
+                                    i2.className = "b"
+                                    arr.splice(1, 1);
+                                }
+                                else{
+                                    i2.className = "y"
+                                    }
+                                }
                             }
                         }
                         else{
@@ -89,7 +113,14 @@
                                 i3.className = "g"
                             }
                             else{
-                                i3.className = "y"
+                                if (count(l3, arr) > count(l3, truearr)){
+                                    i3.className = "b"
+                                    arr.splice(0, 1);
+                                }
+                                else{
+                                    i3.className = "y"
+                                    }
+                                }
                             }
                         }
                         else{
@@ -131,17 +162,24 @@
                     i5.focus();
                 }
                 if (event.keyCode === 13){
-                    let l1 = i4.value;
-                    let l2 = i5.value;
-                    let l3 = i6.value;
-                    let word = (l1 + l2 + l3).toLowerCase();
+                    let l1 = i4.value.toLowerCase();
+                    let l2 = i5.value.toLowerCase();
+                    let l3 = i6.value.toLowerCase();
+                    let word = (l1 + l2 + l3);
+                    let arr = [l3, l2, l1]
                     if (word.length === 3 && words.includes(word)){
                         if (trueword.includes(l1)){
                             if (trueword[0] === l1){
                                 i4.className = "g"
                             }
                             else{
-                                i4.className = "y"
+                                if (count(l1, arr) > count(l1, truearr)){
+                                    i4.className = "b"
+                                    arr.splice(2, 1);
+                                }
+                                else{
+                                    i4.className = "y"
+                                    }
                             }
                         }
                         else{
@@ -152,7 +190,13 @@
                                 i5.className = "g"
                             }
                             else{
-                                i5.className = "y"
+                                if (count(l2, arr) > count(l2, truearr)){
+                                    i5.className = "b"
+                                    arr.splice(1, 1);
+                                }
+                                else{
+                                    i5.className = "y"
+                                    }
                             }
                         }
                         else{
@@ -163,7 +207,13 @@
                                 i6.className = "g"
                             }
                             else{
-                                i6.className = "y"
+                                if (count(l3, arr) > count(l3, truearr)){
+                                    i6.className = "b"
+                                    arr.splice(0, 1);
+                                }
+                                else{
+                                    i6.className = "y"
+                                    }
                             }
                         }
                         else{
@@ -205,17 +255,24 @@
                     i8.focus();
                 }
                 if (event.keyCode === 13){
-                    let l1 = i7.value;
-                    let l2 = i8.value;
-                    let l3 = i9.value;
-                    let word = (l1 + l2 + l3).toLowerCase();
+                    let l1 = i7.value.toLowerCase();
+                    let l2 = i8.value.toLowerCase();
+                    let l3 = i9.value.toLowerCase();
+                    let word = (l1 + l2 + l3);
+                    let arr = [l3, l2, l1]
                     if (word.length === 3 && words.includes(word)){
                         if (trueword.includes(l1)){
                             if (trueword[0] === l1){
                                 i7.className = "g"
                             }
                             else{
-                                i7.className = "y"
+                                if (count(l1, arr) > count(l1, truearr)){
+                                    i7.className = "b"
+                                    arr.splice(2, 1);
+                                }
+                                else{
+                                    i7.className = "y"
+                                    }
                             }
                         }
                         else{
@@ -226,7 +283,13 @@
                                 i8.className = "g"
                             }
                             else{
-                                i8.className = "y"
+                                if (count(l2, arr) > count(l2, truearr)){
+                                    i8.className = "b"
+                                    arr.splice(1, 1);
+                                }
+                                else{
+                                    i8.className = "y"
+                                    }
                             }
                         }
                         else{
@@ -237,7 +300,13 @@
                                 i9.className = "g"
                             }
                             else{
-                                i9.className = "y"
+                                if (count(l3, arr) > count(l3, truearr)){
+                                    i9.className = "b"
+                                    arr.splice(0, 1);
+                                }
+                                else{
+                                    i9.className = "y"
+                                    }
                             }
                         }
                         else{
@@ -279,17 +348,24 @@
                     i11.focus();
                 }
                 if (event.keyCode === 13){
-                    let l1 = i10.value;
-                    let l2 = i11.value;
-                    let l3 = i12.value;
-                    let word = (l1 + l2 + l3).toLowerCase();
+                    let l1 = i10.value.toLowerCase();
+                    let l2 = i11.value.toLowerCase();
+                    let l3 = i12.value.toLowerCase();
+                    let word = (l1 + l2 + l3)
+                    let arr = [l3, l2, l1]
                     if (word.length === 3 && words.includes(word)){
                         if (trueword.includes(l1)){
                             if (trueword[0] === l1){
                                 i10.className = "g"
                             }
                             else{
-                                i10.className = "y"
+                                if (count(l1, arr) > count(l1, truearr)){
+                                    i10.className = "b"
+                                    arr.splice(2, 1);
+                                }
+                                else{
+                                    i10.className = "y"
+                                    }
                             }
                         }
                         else{
@@ -300,7 +376,13 @@
                                 i11.className = "g"
                             }
                             else{
-                                i11.className = "y"
+                                if (count(l2, arr) > count(l2, truearr)){
+                                    i11.className = "b"
+                                    arr.splice(1, 1);
+                                }
+                                else{
+                                    i11.className = "y"
+                                    }
                             }
                         }
                         else{
@@ -311,7 +393,13 @@
                                 i12.className = "g"
                             }
                             else{
-                                i12.className = "y"
+                                if (count(l3, arr) > count(l3, truearr)){
+                                    i12.className = "b"
+                                    arr.splice(0, 1);
+                                }
+                                else{
+                                    i12.className = "y"
+                                    }
                             }
                         }
                         else{
